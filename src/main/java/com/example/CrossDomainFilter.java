@@ -1,4 +1,4 @@
-package com.example.setup;
+package com.example;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;

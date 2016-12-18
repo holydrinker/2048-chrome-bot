@@ -1,7 +1,10 @@
-package com.example.setup;
-import com.example.brain.*;
+package com.example;
 
 import javax.ws.rs.*;
+
+import com.example.brain.Brain;
+import com.example.brain.BruteBrain;
+
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -20,6 +23,7 @@ public class MyResource {
     @Produces("application/json")
     @Consumes("application/json")
     public Integer nextMove(final Integer[][] input) {
+    	System.out.println("lol");
         return brain.computeNextMove(input);
     }
 }
