@@ -3,10 +3,10 @@ A collection of algorithms collapsed in a package that solve 2048's gaming probl
 
 2048 game: https://gabrielecirulli.github.io/2048/
 
-# Required installation
+## Required installation
 git, jdk, maven, google chrome
 
-# How to play
+## How to play
 1 - `git clone https://github.com/giuseppe-santoro/2048-chrome-bot`
 
 2 - Open Google Chrome and go to chrome://extensions/
@@ -22,7 +22,7 @@ git, jdk, maven, google chrome
 7 - See bot playing :)
 
 
-# How to add your own solution
+## How to add your own solution
 Create a YourBrain.java class into the com.example.brain package that implements Brain.java interface. Type your algorithm in computeNextMove() method.
 
 Don't forget to go into MyResource.class and change 
