@@ -7,19 +7,19 @@ A collection of algorithms collapsed in a package that solve 2048's gaming probl
 git, jdk, maven, google chrome
 
 # How to play
-1 - git clone https://github.com/giuseppe-santoro/2048-chrome-bot
+1 - `git clone https://github.com/giuseppe-santoro/2048-chrome-bot`
 
 2 - Open Google Chrome and go to chrome://extensions/
 
 3 - Enable "Developer Mode", press "Load unpacked extension" and select the project
 
-4 - git clone https://github.com/holydrinker/2048-chrome-bot
+4 - `git clone https://github.com/holydrinker/2048-chrome-bot`
 
 5 - Go to https://gabrielecirulli.github.io/2048/
 
-6 - Go into the project with your terminal and type mvn exec:java
+6 - Go into the project with your terminal and type `mvn exec:java`
 
-7 - See bot plays :)
+7 - See bot playing :)
 
 
 # How to add your own solution
