@@ -9,7 +9,7 @@ git, jdk, maven, google chrome
 ## How to play
 1 - `git clone https://github.com/giuseppe-santoro/2048-chrome-bot`
 
-2 - Open Google Chrome and go to chrome://extensions/
+2 - Open Google Chrome and go to `chrome://extensions/`
 
 3 - Enable "Developer Mode", press "Load unpacked extension" and select the project
 
