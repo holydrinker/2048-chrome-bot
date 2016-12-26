@@ -1,6 +1,7 @@
 package com.example.brain;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Matrix implements Comparable{
 	private Integer[][] input;
@@ -23,6 +24,10 @@ public class Matrix implements Comparable{
 			tmp[row] = rowMerge(tmp[row]);
 		}
 		return new Matrix(tmp);
+	}
+	
+	public Matrix shiftLeft() {
+		return this.mirrored().shiftRight().mirrored();
 	}
 	
 	// Wrapping for method below 
@@ -48,6 +53,30 @@ public class Matrix implements Comparable{
 		} 
 		
 		return singleRowMerge(tmp, idx + 1);
+	}
+	
+	// Generate mirrored matrix
+	private Matrix mirrored() {
+		Integer[][] newData = new Integer[input.length][input[0].length];
+		for(int i = 0; i < input.length; i++) {
+			Integer[] row = input[i];
+			Integer[] tmp = new Integer[row.length];
+			for(int j = 0; j < row.length; j++){
+				tmp[j] = row[row.length - 1 - j];
+				newData[i] = tmp;
+			}
+		}
+		return new Matrix(newData);
+	}
+	
+	private Matrix transpose() {
+		Integer[][] tmp = new Integer[input[0].length][input.length];
+		for(int i = 0; i < input.length; i++) {
+			for(int j = 0; j < input[0].length; j++) {
+				tmp[j][i] = input[i][j];
+			}
+		}
+		return new Matrix(tmp);
 	}
 	
 	@Override
