@@ -17,8 +17,37 @@ public class Matrix implements Comparable{
 		this.input = new Integer[0][0];
 	}
 	
-	void slideLeft(){
+	public Matrix shiftRight() {
+		Integer[][] tmp = input.clone();
+		for(int row = 0; row < input.length; row++) {
+			tmp[row] = rowMerge(tmp[row]);
+		}
+		return new Matrix(tmp);
+	}
 	
+	// Wrapping for method below 
+	public Integer[] rowMerge(Integer[] tmp){
+		return singleRowMerge(tmp, 0);
+	}
+	
+	// Merge a row's cells from left to ride
+	private Integer[] singleRowMerge (Integer[] tmp, int idx) {
+		if(idx == tmp.length - 1)
+			return tmp;
+		
+		if(tmp[idx + 1] == 0) {
+			tmp[idx + 1] = tmp[idx];
+			for(int i = idx; i > 0; i--)
+				tmp[i] = tmp[i - 1];
+			tmp[0] = 0;
+		} else if (tmp[idx + 1] == tmp[idx]) {
+			tmp[idx + 1] = tmp[idx + 1] * 2;
+			for(int i = idx; i > 0; i--)
+				tmp[i] = tmp[i - 1];
+			tmp[0] = 0;
+		} 
+		
+		return singleRowMerge(tmp, idx + 1);
 	}
 	
 	@Override

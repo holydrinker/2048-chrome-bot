@@ -83,6 +83,8 @@ public class BruteBrain implements Brain {
 		keys.addAll(sortedMap.keySet());
 		String result = keys.get(0);
 		
+		// TO DO: simulation
+		
 		// Decoding result
 		if(result.equals("UL")){
 			int[] res = {Move.UP, Move.LEFT};
