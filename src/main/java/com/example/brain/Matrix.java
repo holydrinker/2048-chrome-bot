@@ -30,6 +30,14 @@ public class Matrix implements Comparable{
 		return this.mirrored().shiftRight().mirrored();
 	}
 	
+	public Matrix shiftDown() {
+		return this.transpose().shiftRight().transpose();
+	}
+	
+	public Matrix shiftUp() {
+		return this.transpose().mirrored().shiftRight().mirrored().transpose();
+	}
+	
 	// Wrapping for method below 
 	public Integer[] rowMerge(Integer[] tmp){
 		return singleRowMerge(tmp, 0);
