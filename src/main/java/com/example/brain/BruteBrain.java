@@ -81,31 +81,62 @@ public class BruteBrain implements Brain {
 		
 		List<String> keys = new ArrayList<String>();
 		keys.addAll(sortedMap.keySet());
-		String result = keys.get(0);
+		//String result = keys.get(0); Without simulation this holds (suboptimal)
 		
-		// TO DO: simulation
+		// Simulation
+		String result = simulation(matrix, keys);
 		
 		// Decoding result
 		if(result.equals("UL")){
 			int[] res = {Move.UP, Move.LEFT};
 			return res;
 		}
-		if(result.equals("DL")){
+		else if(result.equals("DL")){
 			int[] res = {Move.DOWN, Move.LEFT};
 			return res;
 		}
-		if(result.equals("UR")){
+		else if(result.equals("UR")){
 			int[] res = {Move.UP, Move.RIGHT};
 			return res;
 		}
-		if(result.equals("DR")){
+		else {
 			int[] res = {Move.DOWN, Move.RIGHT};
 			return res;
 		}
-			
-		return null;
 	}
-
+	
+	private String simulation(Integer[][] data, List<String> rankedResult) {
+		if(rankedResult.size() == 1)
+			return rankedResult.get(0);
+		
+		String candidate = rankedResult.get(0);
+		Matrix matrix = new Matrix(data);
+		String oldState = matrix.toString();
+		Matrix tmp = null;
+		
+		if(candidate.equals("UL")){
+			tmp = matrix.shiftUp().shiftLeft();
+		}
+		else if(candidate.equals("DL")){
+			tmp = matrix.shiftDown().shiftLeft();
+		}
+		if(candidate.equals("UR")){
+			tmp = matrix.shiftUp().shiftRight();
+		}
+		if(candidate.equals("DR")){
+			tmp = matrix.shiftDown().shiftRight();
+		}
+		
+		String virtualState = tmp.toString();
+		if(!virtualState.equals(oldState)) {
+			return candidate;
+		}
+		else{
+			rankedResult.remove(0);
+			return simulation(data, rankedResult);
+		}
+	}
+	
 	@SuppressWarnings("unused")
 	private class ValueComparator implements Comparator<String>{
 		private Map<String, Integer> base;
